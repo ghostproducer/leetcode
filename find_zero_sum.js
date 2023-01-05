@@ -32,10 +32,3 @@ const D = [2, 18, 14, -100]
 
 
 findZeroSum(A,B,C,D)
-
-
-let query = `SELECT user.username, user.first_name, user.last_name, posts.content, posts.created_at
-                FROM user 
-                INNER JOIN posts
-                ON posts.user_id = user.id
-                ORDER BY posts.created_at DESC`;
