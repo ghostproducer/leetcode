@@ -1,7 +1,6 @@
 // Given an integer array nums, find the 
 // subarray
 //  with the largest sum, and return its sum.
-
  
 
 // Example 1:
@@ -15,26 +14,21 @@
  * @return {number}
  */
 var maxSubArray = function (nums) {
-//   let sumArray = nums[0];
-  let subArray = [];
+  let maxArray = nums[0];
+  let sum = [];
 
   for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
 
-      if (sumOfArray(nums.splice(0,i)) > sumOfArray(nums.splice(0, i +1))) {
-        subArray = nums.splice(0,i);
-      }
+    if (sum > maxArray) {
+      maxArray = sum;
+    }
+
+    if (sum < 0) {
+      sum = 0;
+    }
+
   }
 
-  return subArray;
+  return maxArray;
 };
-
-function sumOfArray (arr) {
-    return arr.reduce((a,b) => a + b,0);
-}
-
-// console.log(sumOfArray([1]))
-
-
-// maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]);
-
-// https://leetcode.com/problems/maximum-subarray/description/?envType=study-plan&id=data-structure-i
